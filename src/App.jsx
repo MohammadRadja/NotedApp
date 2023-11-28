@@ -1,6 +1,6 @@
 import React from 'react';
 import NoteItem from '../components/NoteItem';
-import './App.css'
+import './App.css';
 
 
 const App = () => {
@@ -27,16 +27,12 @@ const App = () => {
     <div className="container mx-auto p-4">
       <h1 className="text-2xl font-semibold mb-4">Daftar Catatan</h1>
       {notes.map((note, index) => (
-        <div
+        <NoteItem
           key={index}
-          className="bg-white shadow-md rounded p-4 mb-4"
-        >
-          <h3 className="text-lg font-semibold mb-2">{note.title}</h3>
-          <p className="text-gray-500 mb-1">
-            Created at: {note.createdAt}
-          </p>
-          <p className="text-gray-700">{note.body}</p>
-        </div>
+          title={note.title}
+          createdAt={note.createdAt}
+          body={note.body}
+        />
       ))}
     </div>
   );
