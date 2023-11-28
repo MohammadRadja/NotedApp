@@ -1,35 +1,45 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import React from 'react';
+import NoteItem from '../components/NoteItem';
 import './App.css'
 
-function App() {
-  const [count, setCount] = useState(0)
+
+const App = () => {
+  // Data catatan hardcode
+  const notes = [
+    {
+      title: 'Catatan 1',
+      createdAt: '2023-11-28',
+      body: 'Isi catatan 1',
+    },
+    {
+      title: 'Catatan 2',
+      createdAt: '2023-11-29',
+      body: 'Isi catatan 2',
+    },
+    {
+      title: 'Catatan 3',
+      createdAt: '2023-11-30',
+      body: 'Isi catatan 3',
+    },
+  ];
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    <div className="container mx-auto p-4">
+      <h1 className="text-2xl font-semibold mb-4">Daftar Catatan</h1>
+      {notes.map((note, index) => (
+        <div
+          key={index}
+          className="bg-white shadow-md rounded p-4 mb-4"
+        >
+          <h3 className="text-lg font-semibold mb-2">{note.title}</h3>
+          <p className="text-gray-500 mb-1">
+            Created at: {note.createdAt}
+          </p>
+          <p className="text-gray-700">{note.body}</p>
+        </div>
+      ))}
+    </div>
+  );
+};
 
-export default App
+export default App;
