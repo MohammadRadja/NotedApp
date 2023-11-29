@@ -1,5 +1,5 @@
 import React from 'react';
-import NoteItem from '../components/NoteItem';
+import NoteItem from './components/NoteItem';
 import './App.css';
 
 
